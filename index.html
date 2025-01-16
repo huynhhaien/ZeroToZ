@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML Display</title>
+</head>
+<body>
+    <h1>Display XML Content</h1>
+    <div id="xml-content"></div>
+
+    <script>
+        function loadXML() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                const xmlDoc = this.responseXML;
+                const xmlContent = xmlDoc.getElementsByTagName("yourElementTag")[0].childNodes[0].nodeValue; // Lấy giá trị từ XML
+                document.getElementById("xml-content").innerHTML = xmlContent; // Hiển thị trên trang web
+            }
+            xhttp.open("GET", "hhy.xml", true); // Đảm bảo "hhy.xml" là tên file XML trên GitHub
+            xhttp.send();
+        }
+        loadXML();
+    </script>
+</body>
+</html>
